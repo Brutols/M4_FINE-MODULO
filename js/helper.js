@@ -55,7 +55,7 @@ export const showProducts = async (url, key, list) => {
     addListeners(remove, function (ev) {
       const id = ev.target.closest(".products_list_item").id;
       deleteProduct(url, key, id);
-      showProducts();
+      showProducts(url, key, list);
     });
   } catch (error) {
     alert(`error: ${error}`);

@@ -30,12 +30,7 @@ btnNewProd.addEventListener("click", function (ev) {
     const product = generateData();
     addProduct(product, URL, ACCESSTOKEN);
     formContainer.innerHTML = "";
-    showProducts();
-    addListeners(remove, function (ev) {
-      const id = ev.target.closest(".products_list_item").id;
-      deleteProduct(URL, ACCESSTOKEN, id);
-      showProducts();
-    });
+    showProducts(URL, ACCESSTOKEN, productList);
     alert("prodotto aggiunto con successo");
   });
 });
