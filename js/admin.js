@@ -1,4 +1,5 @@
 import { createInput, createRow, createForm, createLi } from "./components.js";
+import { fetchRequest } from "./fetch.js";
 import {
   addListeners,
   deleteProduct,
@@ -15,10 +16,9 @@ const formContainer = document.querySelector(".manage");
 const btnNewProd = document.querySelector("#btn-new_prod");
 const productList = document.querySelector(".products_list");
 
-document.addEventListener(
-  "DOMContentLoaded",
-  showProducts(URL, ACCESSTOKEN, productList)
-);
+document.addEventListener("DOMContentLoaded", function () {
+  showProducts(URL, ACCESSTOKEN, productList);
+});
 
 btnNewProd.addEventListener("click", function (ev) {
   ev.preventDefault();
@@ -28,7 +28,7 @@ btnNewProd.addEventListener("click", function (ev) {
   bntSubmitProd.addEventListener("click", function (ev) {
     ev.preventDefault();
     const product = generateData();
-    addProduct(product, URL, ACCESSTOKEN);
+    fetchRequest({url: URL, key: ACCESSTOKEN, method: "POST", data: product});
     formContainer.innerHTML = "";
     showProducts(URL, ACCESSTOKEN, productList);
     alert("prodotto aggiunto con successo");

@@ -20,7 +20,6 @@ export const createForm = (container, { name = "", desc = "", brand = "", img = 
   row1.appendChild(inputName);
   row1.appendChild(inputDesc);
   form.appendChild(row1);
-  console.log(inputName);
   const row2 = createRow();
   const inputBrand = createInput({
     type: "text",

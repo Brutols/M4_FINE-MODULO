@@ -57,6 +57,14 @@ export const showProducts = async (url, key, list) => {
       const formData = await getProductData(url, key, id);
       formContainer.innerHTML = "";
       createForm(formContainer, formData);
+      const bntSubmitProd = document.querySelector("#btn-submit_prod");
+      bntSubmitProd.addEventListener("click", function(ev) {
+        ev.preventDefault()
+        const editedProduct = generateData();
+        editProduct(url, key, id, editedProduct);
+        formContainer.innerHTML = "";
+        showProducts(url, key, list);
+      })
     });
     const remove = document.querySelectorAll(".icon_delete");
     addListeners(remove, function (ev) {
@@ -100,6 +108,23 @@ export const getProductData = async (url, key, id) => {
       price: json.price,
     };
     return dataObj;
+  } catch (error) {
+    alert(`error: ${error}`);
+  }
+};
+
+export const editProduct = async (url, key, id, data) => {
+  try {
+    const resp = await fetch(url + id, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await resp.json();
+    alert(`${json.name} modificato correttamente`);
   } catch (error) {
     alert(`error: ${error}`);
   }
