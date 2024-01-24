@@ -1,4 +1,5 @@
-import { createLi } from "./components.js";
+import { createForm, createLi } from "./components.js";
+const formContainer = document.querySelector(".manage");
 
 export const generateData = () => {
   const prodName = document.querySelector("#input_name").value;
@@ -50,7 +51,13 @@ export const showProducts = async (url, key, list) => {
     json.forEach((el) => {
       createLi(list, el.name, el._id);
     });
-    // const edit = document.querySelectorAll(".edit")
+    const edit = document.querySelectorAll(".icon_edit");
+    addListeners(edit, async function (ev) {
+      const id = ev.target.closest(".products_list_item").id;
+      const formData = await getProductData(url, key, id);
+      formContainer.innerHTML = "";
+      createForm(formContainer, formData);
+    });
     const remove = document.querySelectorAll(".icon_delete");
     addListeners(remove, function (ev) {
       const id = ev.target.closest(".products_list_item").id;
@@ -63,16 +70,37 @@ export const showProducts = async (url, key, list) => {
 };
 
 export const addProduct = async (data, url, key) => {
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          Authorization: `Bearer ${key}`,
-          "Content-Type": "application/json",
-        },
-      });
-    } catch (error) {
-      alert(`error: ${error}`);
-    }
-  };
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    alert(`error: ${error}`);
+  }
+};
+
+export const getProductData = async (url, key, id) => {
+  try {
+    const resp = await fetch(url + id, {
+      headers: {
+        Authorization: `Bearer ${key}`,
+      },
+    });
+    const json = await resp.json();
+    const dataObj = {
+      name: json.name,
+      desc: json.description,
+      brand: json.brand,
+      img: json.imageUrl,
+      price: json.price,
+    };
+    return dataObj;
+  } catch (error) {
+    alert(`error: ${error}`);
+  }
+};

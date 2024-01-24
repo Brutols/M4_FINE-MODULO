@@ -1,23 +1,48 @@
-export const createForm = (container) => {
+export const createForm = (container, { name = "", desc = "", brand = "", img = "", price }) => {
   const form = document.createElement("div");
   form.classList.add("manage_form", "d-flex", "flex-column");
 
   const row1 = createRow();
-  const inputName = createInput("text", "Name", "name", "input_name");
-  const inputDesc = createInput(
-    "text",
-    "Description",
-    "description",
-    "input_desc"
-  );
+  const inputName = createInput({
+    type: "text",
+    placeholder: "Name",
+    ariaLabel: "name",
+    id: "input_name",
+    content: name,
+  });
+  const inputDesc = createInput({
+    type: "text",
+    placeholder: "Description",
+    ariaLabel: "description",
+    id: "input_desc",
+    content: desc,
+  });
   row1.appendChild(inputName);
   row1.appendChild(inputDesc);
   form.appendChild(row1);
-
+  console.log(inputName);
   const row2 = createRow();
-  const inputBrand = createInput("text", "Brand", "brand", "input_brand");
-  const inputImg = createInput("text", "Img-URL", "img-url", "input_img");
-  const inputPrice = createInput("number", "0.00", "price", "input_price");
+  const inputBrand = createInput({
+    type: "text",
+    placeholder: "Brand",
+    ariaLabel: "brand",
+    id: "input_brand",
+    content: brand,
+  });
+  const inputImg = createInput({
+    type: "text",
+    placeholder: "Img-URL",
+    ariaLabel: "img-url",
+    id: "input_img",
+    content: img,
+  });
+  const inputPrice = createInput({
+    type: "number",
+    placeholder: "0.00",
+    ariaLabel: "price",
+    id: "input_price",
+    content: price,
+  });
   row2.appendChild(inputBrand);
   row2.appendChild(inputImg);
   row2.appendChild(inputPrice);
@@ -34,7 +59,7 @@ export const createForm = (container) => {
   container.appendChild(form);
 };
 
-export const createInput = (type, placeholder, ariaLabel, id) => {
+export const createInput = ({ type, placeholder, ariaLabel, id, content }) => {
   const col = document.createElement("div");
   col.classList.add("col");
 
@@ -45,6 +70,7 @@ export const createInput = (type, placeholder, ariaLabel, id) => {
   input.setAttribute("placeholder", placeholder);
   input.setAttribute("aria-label", ariaLabel);
   input.setAttribute("id", id);
+  input.value = content;
 
   col.appendChild(input);
   return col;

@@ -23,7 +23,7 @@ document.addEventListener(
 btnNewProd.addEventListener("click", function (ev) {
   ev.preventDefault();
   formContainer.innerHTML = "";
-  createForm(formContainer);
+  createForm(formContainer, {});
   const bntSubmitProd = document.querySelector("#btn-submit_prod");
   bntSubmitProd.addEventListener("click", function (ev) {
     ev.preventDefault();
