@@ -62,4 +62,4 @@ Clone the repository and open the desired HTML file in a web browser.
 2. Open the desired HTML file (`admin.html`, `index.html`, `detail.html`) in a web browser.
 
 ## Contributing
-Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md).
+Contributions are welcome!
