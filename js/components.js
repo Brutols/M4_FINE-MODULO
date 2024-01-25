@@ -1,4 +1,7 @@
-export const createForm = (container, { name = "", desc = "", brand = "", img = "", price }) => {
+export const createForm = (
+  container,
+  { name = "", desc = "", brand = "", img = "", price }
+) => {
   const form = document.createElement("div");
   form.classList.add("manage_form", "d-flex", "flex-column");
 
@@ -60,7 +63,7 @@ export const createForm = (container, { name = "", desc = "", brand = "", img = 
 
 export const createInput = ({ type, placeholder, ariaLabel, id, content }) => {
   const col = document.createElement("div");
-  col.classList.add("col");
+  col.classList.add("col-12", "col-lg");
 
   const input = document.createElement("input");
   input.classList.add("form-control", "bg-dark");
@@ -85,7 +88,11 @@ export const createLi = (container, name, id) => {
   const li = document.createElement("li");
   li.classList.add("products_list_item");
   li.setAttribute("id", id);
-  li.textContent = name;
+
+  const text = document.createElement("p");
+  text.classList.add("text-truncate")
+  text.textContent = name;
+  li.appendChild(text);
 
   const iconsContainer = document.createElement("div");
   iconsContainer.classList.add("products_list_item_icons");
@@ -120,12 +127,12 @@ export const createCard = (src, title, desc, price, id, container) => {
 
   cardWrapper.appendChild(cardBody);
 
-  const TitleLink = document.createElement("a")
-  TitleLink.classList.add("card-title_link")
-  TitleLink.setAttribute("href", `detail.html?id=${id}`)
-  TitleLink.setAttribute("target", "_blank")
+  const TitleLink = document.createElement("a");
+  TitleLink.classList.add("card-title_link");
+  TitleLink.setAttribute("href", `detail.html?id=${id}`);
+  TitleLink.setAttribute("target", "_blank");
 
-  cardBody.appendChild(TitleLink)
+  cardBody.appendChild(TitleLink);
 
   const cardTitle = document.createElement("h5");
   cardTitle.classList.add("card-title", "text-truncate");
@@ -140,7 +147,13 @@ export const createCard = (src, title, desc, price, id, container) => {
   cardBody.appendChild(cardDesc);
 
   const cardBtn = document.createElement("a");
-  cardBtn.classList.add("btn", "btn-primary", "text-truncate", "card_btn", "disabled");
+  cardBtn.classList.add(
+    "btn",
+    "btn-primary",
+    "text-truncate",
+    "card_btn",
+    "disabled"
+  );
   cardBtn.setAttribute("href", "#");
   cardBtn.textContent = `$${price}`;
 
@@ -152,43 +165,43 @@ export const createCard = (src, title, desc, price, id, container) => {
 };
 
 export const createCardDetail = (src, title, desc, price) => {
-  const detailWrapper = document.createElement("div")
-  detailWrapper.classList.add("detail_wrapper")
-  detailWrapper.style.backgroundImage = `url(${src})`
+  const detailWrapper = document.createElement("div");
+  detailWrapper.classList.add("detail_wrapper");
+  detailWrapper.style.backgroundImage = `url(${src})`;
 
-  const detailContainer = document.createElement("div")
-  detailContainer.classList.add("detail", "row")
+  const detailContainer = document.createElement("div");
+  detailContainer.classList.add("detail", "row");
 
-  const detailImg = document.createElement("img")
-  detailImg.classList.add("detail_img", "col-6")
-  detailImg.setAttribute("src", src)
+  const detailImg = document.createElement("img");
+  detailImg.classList.add("detail_img", "col-6");
+  detailImg.setAttribute("src", src);
 
-  detailContainer.appendChild(detailImg)
+  detailContainer.appendChild(detailImg);
 
-  const detailTextContainer = document.createElement("div")
-  detailTextContainer.classList.add("detail_textContainer", "col-6")
+  const detailTextContainer = document.createElement("div");
+  detailTextContainer.classList.add("detail_textContainer", "col-6");
 
-  detailContainer.appendChild(detailTextContainer)
+  detailContainer.appendChild(detailTextContainer);
 
-  const detailTitle = document.createElement("h1")
-  detailTitle.classList.add("detail_title", "col-12")
-  detailTitle.textContent = title
+  const detailTitle = document.createElement("h1");
+  detailTitle.classList.add("detail_title", "col-12");
+  detailTitle.textContent = title;
 
-  detailTextContainer.appendChild(detailTitle)
+  detailTextContainer.appendChild(detailTitle);
 
-  const detailDesc = document.createElement("h2")
-  detailDesc.classList.add("detail_desc")
-  detailDesc.textContent = `- ${desc} -`
+  const detailDesc = document.createElement("h2");
+  detailDesc.classList.add("detail_desc");
+  detailDesc.textContent = desc;
 
-  detailTextContainer.appendChild(detailDesc)
+  detailTextContainer.appendChild(detailDesc);
 
-  const detailPrice = document.createElement("h4")
-  detailPrice.classList.add("detail_price")
-  detailPrice.textContent = `$${price}`
+  const detailPrice = document.createElement("h4");
+  detailPrice.classList.add("detail_price");
+  detailPrice.textContent = `$${price}`;
 
-  detailTextContainer.appendChild(detailPrice)
+  detailTextContainer.appendChild(detailPrice);
 
-  const body = document.querySelector("body")
-  detailWrapper.appendChild(detailContainer)
-  body.appendChild(detailWrapper)
-}
+  const body = document.querySelector("body");
+  detailWrapper.appendChild(detailContainer);
+  body.appendChild(detailWrapper);
+};

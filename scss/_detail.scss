@@ -24,6 +24,7 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 20px;
   position: relative;
   z-index: 1;
   &_img {
@@ -35,9 +36,18 @@
   }
   &_textContainer {
     min-width: 300px;
+    background: $background-color;
+    border-radius: 20px;
+    padding: 10px 20px;
     flex: 0 0 auto;
   }
   &_title, &_desc, &_price {
     color: white;
+  }
+  &_title {
+    font-weight: 700;
+  }
+  &_price {
+    font-weight: 400;
   }
 }

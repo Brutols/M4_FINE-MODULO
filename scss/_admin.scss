@@ -1,5 +1,10 @@
+main {
+  flex-wrap: wrap;
+}
+
 .products {
   height: 91vh;
+  min-width: 260px;
   border-right: 2px solid $background-color;
   padding: 10px;
   display: flex;
@@ -22,6 +27,12 @@
       color: white;
       background: lighten($background-color, 10%);
       border-radius: 5px;
+      &_icons {
+        min-width: 45px;
+      }
+      p {
+        margin: 0;
+      }
       ion-icon {
         font-size: 1.3rem;
         margin-top: 2px;

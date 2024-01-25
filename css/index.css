@@ -6,8 +6,28 @@
      object-fit: cover;
 }
 
+@media screen and (max-width: 1057px) {
+  .manage {
+    width: unset;
+  }
+}
+@media screen and (max-width: 970px) {
+  .products {
+    width: 100%;
+    height: unset !important;
+  }
+  .manage {
+    width: 100%;
+    padding: 0 20px !important;
+  }
+}
+main {
+  flex-wrap: wrap;
+}
+
 .products {
   height: 91vh;
+  min-width: 260px;
   border-right: 2px solid #212529;
   padding: 10px;
   display: flex;
@@ -31,6 +51,12 @@
   background: #383f45;
   border-radius: 5px;
 }
+.products_list_item_icons {
+  min-width: 45px;
+}
+.products_list_item p {
+  margin: 0;
+}
 .products_list_item ion-icon {
   font-size: 1.3rem;
   margin-top: 2px;
@@ -53,6 +79,11 @@
 
 .card_container {
   margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .card {
@@ -115,6 +146,7 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 20px;
   position: relative;
   z-index: 1;
 }
@@ -128,10 +160,19 @@
 }
 .detail_textContainer {
   min-width: 300px;
+  background: #212529;
+  border-radius: 20px;
+  padding: 10px 20px;
   flex: 0 0 auto;
 }
 .detail_title, .detail_desc, .detail_price {
   color: white;
+}
+.detail_title {
+  font-weight: 700;
+}
+.detail_price {
+  font-weight: 400;
 }
 
 body {

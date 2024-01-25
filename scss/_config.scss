@@ -11,3 +11,21 @@ $accent-color: #efae1b;
 @mixin transition-ease {
   transition: all 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 1057px) {
+  .manage {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .products {
+    width: 100%;
+    height: unset!important;
+  }
+
+  .manage {
+    width: 100%;
+    padding: 0 20px!important;
+  }
+}
