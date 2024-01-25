@@ -63,6 +63,3 @@ Clone the repository and open the desired HTML file in a web browser.
 
 ## Contributing
 Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md).
-
-## License
-This project is licensed under the [MIT License](LICENSE).
