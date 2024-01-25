@@ -1,5 +1,7 @@
 @import "./config";
 @import "./admin";
+@import "./home";
+@import "./detail";
 
 body {
   background: lighten($background-color, 10%);

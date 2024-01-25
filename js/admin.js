@@ -1,14 +1,7 @@
-import { createInput, createRow, createForm, createLi } from "./components.js";
+import { createForm, createLi } from "./components.js";
 import { fetchRequest } from "./fetch.js";
 import { addListeners, generateData, getProductData } from "./helper.js";
-
-const ACCESSTOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmOWU5YmJkNWQxMjAwMTg5MGQ0NjQiLCJpYXQiOjE3MDYwMDgyMTksImV4cCI6MTcwNzIxNzgxOX0.T5qTK5UycN--6e2OLyGxuuJa8XsZXRt5gONKE9ODvUY";
-const URL = "https://striveschool-api.herokuapp.com/api/product/";
-
-const formContainer = document.querySelector(".manage");
-const btnNewProd = document.querySelector("#btn-new_prod");
-const productList = document.querySelector(".products_list");
+import { URL, ACCESSTOKEN, formContainer, btnNewProd, productList } from "./constant.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   showProducts(URL, ACCESSTOKEN, productList);

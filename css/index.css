@@ -38,7 +38,7 @@
 }
 .products_list_item ion-icon:hover {
   cursor: pointer;
-  color: #EFAE1B;
+  color: #efae1b;
 }
 
 .manage {
@@ -49,6 +49,89 @@
 }
 .manage_section {
   margin-block: 5px;
+}
+
+.card_container {
+  margin: 20px auto;
+}
+
+.card {
+  padding: 0;
+  width: 18rem;
+  background: #212529;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.card img {
+  width: 100%;
+  aspect-ratio: 1/1.1;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card-title_link {
+  text-decoration: none;
+  color: #efae1b;
+}
+.card-title_link:hover {
+  text-decoration: underline;
+}
+.card .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: #efae1b;
+  color: #212529;
+  border: 1px solid #996e0b;
+}
+.card .btn ion-icon {
+  font-size: 20px;
+}
+
+.detail_wrapper {
+  background: center;
+  position: relative;
+}
+.detail_wrapper::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  background: inherit;
+  filter: blur(5px);
+  background-color: grey;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.detail {
+  margin-inline: auto;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 1;
+}
+.detail_img {
+  padding: 0;
+  width: 300px;
+  border-radius: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  flex: 0 0 auto;
+}
+.detail_textContainer {
+  min-width: 300px;
+  flex: 0 0 auto;
+}
+.detail_title, .detail_desc, .detail_price {
+  color: white;
 }
 
 body {
