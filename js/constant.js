@@ -2,7 +2,7 @@
 // fetch
 
 export const ACCESSTOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmOWU5YmJkNWQxMjAwMTg5MGQ0NjQiLCJpYXQiOjE3MDgwOTU5MjEsImV4cCI6MTcwOTMwNTUyMX0.uUoRJ9TIYLG9g18h_sNUuZ0dnv9hqZIVH6jD_kpZhFs";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmOWU5YmJkNWQxMjAwMTg5MGQ0NjQiLCJpYXQiOjE3MDk0NzYyMDAsImV4cCI6MTcxMDY4NTgwMH0.YeJD-StjZWn9oOh1EahV20sUB2hJwwICdl1EcrBpw5Q";
 export const URL = "https://striveschool-api.herokuapp.com/api/product/";
 
 // end fetch
